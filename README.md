@@ -21,3 +21,9 @@ Describe Order.prototype.addPizza()
 Test: "It should add a pizza object to the order object"
 Code: allPizzas.addPizza(pizza1)
 Expected Output: allPizzas {pizza1}
+
+Describe Order.prototype.pizzaId()
+
+Test: "It should give each pizza an id when placed in the order for easier sorting
+Code: pizza.id = this.pizzaId()
+Expexted Output: 1
