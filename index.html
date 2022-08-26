@@ -15,15 +15,29 @@
         <h2>Build Your Pizza!</h2>
         <form id="new-pizza">
           <div class="form-group">
-            <label for="size">Pizza Size</label>
-            <input type="text" id="size" name="name">
-          </div>
-          <div class="form-group">
-            <label for="toppings">toppings</label>
-            <input type="number" id="toppings" name="toppings">
+            <h4>Pizza Size</h4>
+            <label>
+              <input type="radio" name="size" value="small" checked> small
+            </label>
+            <label>
+              <input type="radio" name="size" value="medium"> medium
+            </label>
+            <label>
+              <input type="radio" name="size" value="large"> large
+            </label>
           </div>
           <button type="submit" class="btn-primary">Add Pizza!</button>
         </form>
+            <form id="new-top">
+            <p>Add a topping to the Pizza!</p>
+            <select id="t1">  
+              <option>Pepperoni</option>
+              <option>Bacon</option>
+              <option>Pineapple</option>
+              <option>Jalapeno</option>
+            </select>
+            <button type="submit" class="btn-tertiary">Add topping</button>
+          </form>
       </div>
     </div>
   </div>
