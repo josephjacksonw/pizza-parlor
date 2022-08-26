@@ -17,13 +17,13 @@
           <div class="form-group">
             <h4>Pizza Size</h4>
             <label>
-              <input type="radio" name="size" value="small" checked> small
+              <input type="radio" name="size" value="Small" checked> small
             </label>
             <label>
-              <input type="radio" name="size" value="medium"> medium
+              <input type="radio" name="size" value="Medium"> medium
             </label>
             <label>
-              <input type="radio" name="size" value="large"> large
+              <input type="radio" name="size" value="Large"> large
             </label>
           </div>
           <button type="submit" class="btn-primary">Add Pizza!</button>
@@ -38,6 +38,17 @@
             </select>
             <button type="submit" class="btn-tertiary">Add topping</button>
           </form>
+      </div>
+      <div class="col-md-6">
+        <div class="hidden" id="orderUp">
+          <h6><span id="sizeofZa"></span> Pizza</h6>
+          <div class="hidden">
+            <p>Price: <span id="ivPrice"></span></p>
+          </div>
+        </div>
+        <div class="hidden" id="orderTotalId">
+          <p>Order Total: $<span id="orderTotal"></span></p>
+        </div>
       </div>
     </div>
   </div>

@@ -26,10 +26,10 @@ function Pizza(size, toppings, items) {
 
 function cost(pizza) {
   let cost = 10
-  if (pizza.size === "large") {
+  if (pizza.size === "Large") {
     cost += 4
     cost += pizza.toppings * 1.50
-  } else if (pizza.size === "medium") {
+  } else if (pizza.size === "Medium") {
     cost += 2
     cost += pizza.toppings * 1.25
   } else {
@@ -45,6 +45,27 @@ let allPizzas = new Order();
 let toppingCounter = 0
 let toppings = []
 
+
+
+function showPizza(ordered) {
+  const ul = document.createElement("ul")
+  console.log("show piizza")
+  console.log(ordered.items)
+  let orders = document.getElementById("orderUp")
+  let zaName = document.getElementById("sizeofZa")
+  zaName.innerText = ordered.size;
+  ordered.items.forEach(function (i){
+    const size = ordered.size;
+    const li = document.createElement("li");
+    li.append(i)
+    ul.append(li)
+    
+    orders.append(ul)
+    console.log(ul)
+  })
+}
+
+
 function handleFormSubmission(event) {
   event.preventDefault();
   const size = document.querySelector("input[name='size']:checked").value;
@@ -59,6 +80,19 @@ function handleFormSubmission(event) {
   console.log("this pizza's cost" + cost(newpizza))
   toppingCounter = 0
   toppings = []
+  //update...
+  //orders
+  //total price
+  showPizza(newpizza)
+
+  
+
+
+
+
+  document.getElementById("orderTotal").innerText = allPizzas.totalCost.toFixed(2);
+  document.getElementById("orderTotalId").removeAttribute("class");
+  document.getElementById("orderUp").removeAttribute("class");
 };
 
 function addTopping(event) {
