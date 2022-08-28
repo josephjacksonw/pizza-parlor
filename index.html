@@ -17,29 +17,47 @@
           <div class="form-group">
             <h4>Pizza Size</h4>
             <label>
-              <input type="radio" name="size" value="Small" checked> small
+              <input type="radio" name="size" value="Small" checked> small $10
             </label>
             <label>
-              <input type="radio" name="size" value="Medium"> medium
+              <input type="radio" name="size" value="Medium"> medium $12
             </label>
             <label>
-              <input type="radio" name="size" value="Large"> large
+              <input type="radio" name="size" value="Large"> large $14
             </label>
           </div>
           <button type="submit" class="btn-primary">Add Pizza!</button>
         </form>
-            <form id="new-top">
-            <p>Add a topping to the Pizza!</p>
-            <select id="t1">  
-              <option>Pepperoni</option>
-              <option>Bacon</option>
-              <option>Pineapple</option>
-              <option>Jalapeno</option>
-            </select>
-            <button type="submit" class="btn-tertiary">Add topping</button>
-          </form>
+        <form id="new-top">
+          <h6>Add toppings to the Pizza!</h6>
+          <ul>
+            <li>Small - $1.00 per topping</li>
+            <li>Medium - $1.25 per topping</li>
+            <li>Large - $1.50 per topping</li>
+          </ul>
+          <select id="t1">  
+            <option>Pepperoni</option>
+            <option>Bacon</option>
+            <option>Pineapple</option>
+            <option>Jalapeno</option>
+            <option>Green Pepper</option>
+            <option>Banana Pepper</option>
+            <option>Spinach</option>
+            <option>Sausage</option>
+          </select>
+          <button type="submit" class="btn-tertiary">Add topping</button>
+        </form>
+        <br><br>
+        <div class="hidden" id="showToppings">
+          <hr>
+          <h5>Toppings Selected: </h5>
+          <ul id ="toppingView">
+
+          </ul>
+        </div>
       </div>
       <div class="col-md-6">
+        <div class="putOthersHere>" id="putOthersHere"></div>
         <div class="hidden" id="orderUp">
           <h6><span id="sizeofZa"></span> Pizza</h6>
           <div class="hidden">
@@ -47,7 +65,7 @@
           </div>
         </div>
         <div class="hidden" id="orderTotalId">
-          <p>Order Total: $<span id="orderTotal"></span></p>
+          <h6>Order Total: $<span id="orderTotal"></span></h6>
         </div>
       </div>
     </div>

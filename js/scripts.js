@@ -65,6 +65,27 @@ function showPizza(ordered) {
   })
 }
 
+function showPizza2 (ordered) {
+  const div = document.createElement("div")
+  let placement = document.getElementById("putOthersHere")
+  const h5 = document.createElement("h5")
+  h5.innerText = ordered.size + " Pizza"
+  const ul = document.createElement("ul")
+  ordered.items.forEach(function (i){
+    const size = ordered.size;
+    const li = document.createElement("li");
+    li.append(i)
+    ul.append(li)
+    console.log(ul)
+  })
+  const p = document.createElement("p")
+  p.innerText = "Cost: $" + ordered.cost.toFixed(2)
+  placement.append(div)
+  div.append(h5)
+  div.append(ul)
+  div.append(p)
+}
+
 
 function handleFormSubmission(event) {
   event.preventDefault();
@@ -83,7 +104,7 @@ function handleFormSubmission(event) {
   //update...
   //orders
   //total price
-  showPizza(newpizza)
+  showPizza2(newpizza)
 
   
 
@@ -92,8 +113,10 @@ function handleFormSubmission(event) {
 
   document.getElementById("orderTotal").innerText = allPizzas.totalCost.toFixed(2);
   document.getElementById("orderTotalId").removeAttribute("class");
-  document.getElementById("orderUp").removeAttribute("class");
+  //document.getElementById("orderUp").removeAttribute("class");
 };
+
+
 
 function addTopping(event) {
   event.preventDefault();
@@ -103,6 +126,12 @@ function addTopping(event) {
   toppings.push(topping)
   toppingCounter += 1
   console.log(toppings, toppingCounter)
+  document.getElementById("showToppings").removeAttribute("class")
+  let ul = document.getElementById("toppingView")
+  const li = document.createElement("li")
+  li.innerText = topping
+  ul.append(li)
+  
 }
 
 window.addEventListener("load", function() {
