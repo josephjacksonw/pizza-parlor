@@ -1,10 +1,9 @@
-
+// Business Logic 
 function Order() {
   this.pizzas = {};
   this.currentId = 0;
   this.totalCost = 0
 }
-
 
 Order.prototype.addContact = function(pizza) {
   pizza.id = this.pizzaId();
@@ -45,27 +44,7 @@ let allPizzas = new Order();
 let toppingCounter = 0
 let toppings = []
 
-
-
-function showPizza(ordered) {
-  const ul = document.createElement("ul")
-  console.log("show piizza")
-  console.log(ordered.items)
-  let orders = document.getElementById("orderUp")
-  let zaName = document.getElementById("sizeofZa")
-  zaName.innerText = ordered.size;
-  ordered.items.forEach(function (i){
-    const size = ordered.size;
-    const li = document.createElement("li");
-    li.append(i)
-    ul.append(li)
-    
-    orders.append(ul)
-    console.log(ul)
-  })
-}
-
-function showPizza2 (ordered) {
+function showPizza (ordered) {
   const div = document.createElement("div")
   let placement = document.getElementById("putOthersHere")
   const h5 = document.createElement("h5")
@@ -76,7 +55,6 @@ function showPizza2 (ordered) {
     const li = document.createElement("li");
     li.append(i)
     ul.append(li)
-    console.log(ul)
   })
   const p = document.createElement("p")
   p.innerText = "Cost: $" + ordered.cost.toFixed(2)
@@ -86,52 +64,32 @@ function showPizza2 (ordered) {
   div.append(p)
 }
 
-
 function handleFormSubmission(event) {
   event.preventDefault();
   const size = document.querySelector("input[name='size']:checked").value;
-  console.log(size)
-  //const toppings = document.querySelector("input#toppings").value;
   let newpizza = new Pizza(size, toppingCounter, toppings)
   newpizza.cost = cost(newpizza)
-  console.log(newpizza)
   allPizzas.addContact(newpizza)
-
-  console.log(allPizzas)
-  console.log("this pizza's cost" + cost(newpizza))
   toppingCounter = 0
   toppings = []
-  //update...
-  //orders
-  //total price
-  showPizza2(newpizza)
-
-  
-
-
-
-
+  showPizza(newpizza)
   document.getElementById("orderTotal").innerText = allPizzas.totalCost.toFixed(2);
   document.getElementById("orderTotalId").removeAttribute("class");
-  //document.getElementById("orderUp").removeAttribute("class");
+  document.getElementById("showToppings").setAttribute("class", "hidden")
+  let orderClear = document.getElementById("toppingView")
+  orderClear.innerHTML = "";
 };
-
-
 
 function addTopping(event) {
   event.preventDefault();
-  console.log("button identified")
   let topping = document.getElementById("t1").value;
-  //let topping = document.querySelector("input#new-top").value;
   toppings.push(topping)
   toppingCounter += 1
-  console.log(toppings, toppingCounter)
   document.getElementById("showToppings").removeAttribute("class")
   let ul = document.getElementById("toppingView")
   const li = document.createElement("li")
   li.innerText = topping
   ul.append(li)
-  
 }
 
 window.addEventListener("load", function() {
