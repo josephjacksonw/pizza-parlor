@@ -23,18 +23,18 @@ function Pizza(size, toppings, items) {
   this.cost = 0
 };
 
-function cost(pizza) {
+Pizza.prototype.bill = function() { 
   let cost = 10
-  if (pizza.size === "Large") {
+  if (this.size === "Large") {
     cost += 4
-    cost += pizza.toppings * 1.50
-  } else if (pizza.size === "Medium") {
+    cost += this.toppings * 1.50
+  } else if (this.size === "Medium") {
     cost += 2
-    cost += pizza.toppings * 1.25
+    cost += this.toppings * 1.25
   } else {
-    cost += parseInt(pizza.toppings)
+    cost += parseInt(this.toppings)
   }
-  return cost
+  this.cost = cost
 };
 
 
@@ -68,7 +68,7 @@ function handleFormSubmission(event) {
   event.preventDefault();
   const size = document.querySelector("input[name='size']:checked").value;
   let newpizza = new Pizza(size, toppingCounter, toppings)
-  newpizza.cost = cost(newpizza)
+  newpizza.bill()
   allPizzas.addContact(newpizza)
   toppingCounter = 0
   toppings = []
